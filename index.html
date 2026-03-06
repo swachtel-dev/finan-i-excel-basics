@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Basics: Tutorials &amp; Getting Help - FINAN I Unit 2</title>
+    <style>
+        @media print {
+            body {
+                max-width: 100%;
+                margin: 0.4in 0.5in;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.65;
+            color: #2c3e50;
+            background: #f9f7f4;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 50px 45px 60px 45px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2563eb;
+            color: #ffffff;
+            padding: 8px 16px;
+            z-index: 100;
+            font-size: 0.95em;
+            text-decoration: underline;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        *:focus-visible {
+            outline: 3px solid #2563eb;
+            outline-offset: 2px;
+        }
+
+        header {
+            margin-bottom: 45px;
+            padding-bottom: 25px;
+            border-bottom: 3px solid #2563eb;
+        }
+
+        h1 {
+            font-size: 2.6em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #545454;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .intro {
+            background: #ffffff;
+            padding: 28px 30px;
+            border-radius: 6px;
+            margin-bottom: 40px;
+            border-left: 4px solid #2563eb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .intro p {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro strong {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 1.65em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 45px;
+            margin-bottom: 22px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e8dfd1;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 1.25em;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 30px;
+            margin-bottom: 12px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .tutorial-box {
+            background: #ffffff;
+            padding: 22px 26px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #059669;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .tutorial-box h4 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .tutorial-box p {
+            font-size: 0.98em;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .tutorial-box ul {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .tutorial-box li {
+            font-size: 0.98em;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+
+        .tutorial-box a {
+            color: #2563eb;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .tutorial-box a:hover {
+            text-decoration: underline;
+        }
+
+        .tutorial-box .duration {
+            color: #595959;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+
+        .ai-prompt {
+            background: linear-gradient(135deg, #fef3e7 0%, #fef8f0 100%);
+            border: 2px solid #f4a460;
+            border-radius: 6px;
+            padding: 18px 22px;
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        .ai-prompt .label {
+            font-size: 0.85em;
+            font-weight: 700;
+            color: #9a5420;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .ai-prompt .prompt-text {
+            font-size: 1.02em;
+            color: #2c3e50;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .ai-prompt .prompt-text:before {
+            content: '\201C';
+            color: #9a5420;
+            font-size: 1.3em;
+            margin-right: 4px;
+        }
+
+        .ai-prompt .prompt-text:after {
+            content: '\201D';
+            color: #9a5420;
+            font-size: 1.3em;
+            margin-left: 4px;
+        }
+
+        .note-box {
+            background: #f0f9ff;
+            padding: 18px 22px;
+            border-radius: 6px;
+            margin: 25px 0;
+            border-left: 4px solid #2563eb;
+        }
+
+        .note-box p {
+            font-size: 0.98em;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        .note-box strong {
+            color: #1e50a0;
+            font-weight: 600;
+        }
+
+        .prompt-category {
+            margin-bottom: 30px;
+        }
+
+        .prompt-category h4 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #9a5420;
+            margin-bottom: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Excel Basics: Tutorials &amp; Getting Help</h1>
+        <p class="subtitle">Short video tutorials and LLM prompting strategies for the Sunrise Cafe Bootcamp</p>
+    </header>
+
+    <main id="main-content">
+
+    <div class="intro">
+        <p><strong>How to use this resource:</strong> Watch these tutorials BEFORE opening the bootcamp workbook. They will teach you the concepts; the workbook lets you practice applying them.</p>
+    </div>
+
+    <section aria-label="Recommended tutorials">
+    <h2>Part 1: Recommended Tutorials (in order)</h2>
+
+    <div class="section">
+        <div class="tutorial-box">
+            <h4>1. Excel Basics: Cells, Formulas, and Cell References</h4>
+            <p><strong>What it covers:</strong> What Excel is, what cells are, typing your first formula, cell references (A1, B3), how formulas update automatically</p>
+            <p><strong>Recommended videos:</strong></p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=rwbho0CgEAE" target="_blank" rel="noopener">Excel Basics for Beginners<span class="sr-only"> (opens in new tab)</span></a> by Technology for Teachers and Students <span class="duration">(28 min)</span> - clear, beginner-friendly, covers typing in cells and basic formulas</li>
+                <li>Alternative: <a href="https://www.youtube.com/watch?v=Vl0H-qTclOg" target="_blank" rel="noopener">Excel for Beginners - The Complete Course<span class="sr-only"> (opens in new tab)</span></a> by Kevin Stratvert <span class="duration">(first 15 minutes)</span> - professional, well-paced</li>
+            </ul>
+        </div>
+
+        <div class="tutorial-box">
+            <h4>2. SUM, AVERAGE, and Basic Functions</h4>
+            <p><strong>What it covers:</strong> Using SUM to add ranges, AVERAGE for averages, COUNT, MIN, MAX</p>
+            <p><strong>Recommended videos:</strong></p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=m13o5aqeCbM" target="_blank" rel="noopener">How to Use Excel Formulas and Functions<span class="sr-only"> (opens in new tab)</span></a> by Technology for Teachers and Students <span class="duration">(10 min)</span> - clear examples of SUM, AVERAGE, COUNT</li>
+                <li><a href="https://support.microsoft.com/en-us/office/sum-function-043e1c7d-7726-4e80-8f32-07b23e057f89" target="_blank" rel="noopener">Microsoft&rsquo;s official SUM function guide<span class="sr-only"> (opens in new tab)</span></a> (if you prefer reading to video)</li>
+            </ul>
+        </div>
+
+        <div class="tutorial-box">
+            <h4>3. Absolute References ($)</h4>
+            <p><strong>What it covers:</strong> Why $B$3 locks a cell reference when you copy formulas</p>
+            <p><strong>Recommended videos:</strong></p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=Yx52CYvR5ao" target="_blank" rel="noopener">Absolute and Relative Cell References<span class="sr-only"> (opens in new tab)</span></a> - clear explanation with visual examples</li>
+            </ul>
+        </div>
+    </div>
+    </section>
+
+    <section aria-label="Getting help from AI">
+    <h2>Part 2: Getting Help from AI (ChatGPT, Claude, etc.)</h2>
+
+    <div class="intro">
+        <p>Excel is highly standardized, which means ChatGPT, Claude, and other LLMs are excellent at helping you with Excel problems. <strong>Using AI for help is not cheating</strong>. It is a normal part of modern work. This section teaches you how to ask good questions.</p>
+    </div>
+
+    <div class="note-box">
+        <p><strong>Two ways to share your Excel problem with AI:</strong></p>
+        <p><strong>1. Screenshot:</strong> Take a screenshot that shows your data AND the formula bar. If you are debugging a formula, click into that cell first so the formula bar shows what you typed. This gives the AI visual context.</p>
+        <p><strong>2. Paste your data:</strong> Copy cells from Excel and paste directly into the chat. The AI can see your data structure and give you a formula that works with your specific layout.</p>
+    </div>
+
+    <div class="prompt-category">
+        <h4>Basic Formula Questions</h4>
+
+        <div class="ai-prompt">
+            <div class="label">Good Prompt</div>
+            <div class="prompt-text">I have coffee sales in cells B2 through B15. I want one cell that shows the total of all those sales. What formula should I write?</div>
+        </div>
+
+        <div class="ai-prompt">
+            <div class="label">Good Prompt</div>
+            <div class="prompt-text">Column C has quantities sold (like 45, 22, 38). Column D has prices (like $3.50, $5.00, $2.50). I want column E to show quantity times price for each row. What formula goes in E2 that I can copy down?</div>
+        </div>
+
+        <div class="ai-prompt">
+            <div class="label">Good Prompt</div>
+            <div class="prompt-text">I need to calculate revenue as quantity &times; price. Quantities are in C2:C15. The price is in cell B1 (just one cell). When I copy my formula down from C2 to C15, I need B1 to stay locked. How do I write this?</div>
+        </div>
+    </div>
+
+    <div class="prompt-category">
+        <h4>Debugging Errors: Share the error message and what you tried</h4>
+
+        <div class="ai-prompt">
+            <div class="label">Good Prompt</div>
+            <div class="prompt-text">I typed =B5/B10 and got #DIV/0! error. Cell B5 has 100 in it. What is causing this and how do I fix it?</div>
+        </div>
+
+        <div class="ai-prompt">
+            <div class="label">Good Prompt</div>
+            <div class="prompt-text">My formula =SUM(B2:B20) is giving me #VALUE! error. Some of the cells in that range have numbers, but cell B7 says &ldquo;N/A&rdquo; (text). How do I sum just the numbers and ignore the text?</div>
+        </div>
+
+        <div class="ai-prompt">
+            <div class="label">Good Prompt</div>
+            <div class="prompt-text">[Screenshot attached] I am getting #REF! error in cell D5. My formula bar shows =C5*E2 but column E is empty. What does #REF! mean?</div>
+        </div>
+    </div>
+
+    <div class="prompt-category">
+        <h4>Asking How to Do Something: Describe the goal, not the formula</h4>
+
+        <div class="ai-prompt">
+            <div class="label">Good Prompt</div>
+            <div class="prompt-text">I have a sales log with 200 rows. Column A has item names like &ldquo;Coffee&rdquo;, &ldquo;Latte&rdquo;, &ldquo;Tea&rdquo;. Column F has revenue for each sale. I need to know: what was total revenue just for Coffee? Is there a formula for this?</div>
+        </div>
+
+        <div class="ai-prompt">
+            <div class="label">Good Prompt</div>
+            <div class="prompt-text">I am working with daily sales data. Column B has dates, Column C has the item sold, Column D has revenue. I want to find the single highest revenue day for Sandwiches specifically. Can Excel do this?</div>
+        </div>
+
+        <div class="ai-prompt">
+            <div class="label">Good Prompt</div>
+            <div class="prompt-text">[Data pasted below] I need to calculate profit margin as (Revenue - Costs) / Revenue, formatted as a percentage. Revenue is in B10, Costs are in B15. What formula should I use and how do I make it show as a percent?<br><br>Revenue: $28,560<br>Costs: $26,000</div>
+        </div>
+    </div>
+
+    <div class="prompt-category">
+        <h4>Getting Unstuck: Explain what you have tried</h4>
+
+        <div class="ai-prompt">
+            <div class="label">Good Prompt</div>
+            <div class="prompt-text">I am trying to multiply C5 by D5, then copy that formula down to row 20. I typed =C5*D5 in E5 and copied it down, but now E6 shows =C6*D6, E7 shows =C7*D7, etc. This is what I want for the C column, but I need D5 to stay locked on row 5 for all of them. How do I fix this?</div>
+        </div>
+
+        <div class="ai-prompt">
+            <div class="label">Good Prompt</div>
+            <div class="prompt-text">The bootcamp workbook says to use COUNTIF to count how many days we sold more than 50 coffees. I have a filtered table showing only coffee sales. Quantities are in column D, rows 2-15. I tried =COUNTIF(D2:D15, &gt;50) but got an error. What is wrong with my syntax?</div>
+        </div>
+    </div>
+
+    <div class="note-box">
+        <p><strong>What makes a good prompt:</strong></p>
+        <p>1. Describe your data structure: &ldquo;Column A has names, Column B has prices&rdquo;</p>
+        <p>2. Say what you want to accomplish: &ldquo;I want to add up all sales over $100&rdquo;</p>
+        <p>3. Show what you tried if something did not work: &ldquo;I typed =SUM(B2:B10&gt;100) but got an error&rdquo;</p>
+        <p>4. Include the actual error message or unexpected result you got</p>
+    </div>
+
+    <div class="note-box">
+        <p><strong>What AI is good at:</strong> Writing formulas, explaining syntax, debugging errors, suggesting better approaches, explaining what a formula does</p>
+        <p><strong>What AI is NOT good at:</strong> Knowing your specific file structure without you describing it. Always test the formula it gives you and verify the numbers are correct.</p>
+    </div>
+    </section>
+
+    <section aria-label="Optional advanced tutorials">
+    <h2>Part 3: Optional - Going Deeper</h2>
+
+    <div class="section">
+        <p>If you finish the bootcamp and want to learn more advanced Excel:</p>
+
+        <div class="tutorial-box">
+            <h4>Filtering and SUMIFS</h4>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=jPajIyavh_0" target="_blank" rel="noopener">Excel SUMIFS Function<span class="sr-only"> (opens in new tab)</span></a> - covers conditional sums, which you will use heavily in financial analysis</li>
+            </ul>
+        </div>
+
+        <div class="tutorial-box">
+            <h4>INDEX/MATCH (Advanced)</h4>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=-4yCXpv-drg" target="_blank" rel="noopener">Excel INDEX MATCH Function<span class="sr-only"> (opens in new tab)</span></a> - the &ldquo;optional Tab 9&rdquo; skill, useful for looking up data across large datasets</li>
+            </ul>
+        </div>
+
+        <div class="tutorial-box">
+            <h4>Excel Keyboard Shortcuts</h4>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=iotrTlRT3q0" target="_blank" rel="noopener">Excel Keyboard Shortcuts<span class="sr-only"> (opens in new tab)</span></a> - covers the most useful time-savers</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="note-box">
+        <p><strong>Learning style:</strong> If you prefer reading to video, Microsoft&rsquo;s <a href="https://support.microsoft.com/en-us/office/excel-video-training-9bc05390-e94c-46af-a5b3-d7c22f6990bb" target="_blank" rel="noopener">Excel video training<span class="sr-only"> (opens in new tab)</span></a> page has text-based tutorials with screenshots for all these topics.</p>
+    </div>
+    </section>
+
+    </main>
+</body>
+</html>
